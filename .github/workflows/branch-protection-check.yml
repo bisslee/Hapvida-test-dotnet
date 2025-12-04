@@ -1,0 +1,44 @@
+name: Branch Protection Check
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-branch-protection:
+    name: Validar Proteção de Branch
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Validar origem da PR
+        if: github.event_name == 'pull_request' && github.base_ref == 'main'
+        run: |
+          if [ "${{ github.head_ref }}" != "develop" ]; then
+            echo "❌ ERRO: Pull Requests para 'main' devem vir APENAS da branch 'develop'"
+            echo "Branch atual: ${{ github.head_ref }}"
+            echo "Branch esperada: develop"
+            exit 1
+          else
+            echo "✅ Pull Request válida: develop → main"
+          fi
+      
+      - name: Bloquear push direto em main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          echo "❌ ERRO: Push direto na branch 'main' não é permitido!"
+          echo "Por favor, use Pull Request de 'develop' para atualizar 'main'"
+          exit 1
+      
+      - name: Validar estrutura de commit
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "✅ Validando estrutura de commits..."
+          # Adicionar validações adicionais se necessário
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="ZipCode_Empty" xml:space="preserve">
+		<value>El código postal no puede estar vacío.</value>
+	</data>
+	<data name="ZipCode_InvalidCharacters" xml:space="preserve">
+		<value>El código postal debe contener solo dígitos.</value>
+	</data>
+	<data name="ZipCode_InvalidLength" xml:space="preserve">
+		<value>El código postal debe contener exactamente {0} dígitos.</value>
+	</data>
+	<data name="Cep_InvalidFormat" xml:space="preserve">
+		<value>El código postal debe contener 8 dígitos. Valor recibido: {0}</value>
+	</data>
+	<data name="Cep_NotFound" xml:space="preserve">
+		<value>El código postal {0} no fue encontrado en ningún proveedor.</value>
+	</data>
+	<data name="Cep_InvalidTitle" xml:space="preserve">
+		<value>Código postal inválido</value>
+	</data>
+	<data name="Cep_NotFoundTitle" xml:space="preserve">
+		<value>Código postal no encontrado</value>
+	</data>
+	<data name="Provider_BrasilApiNotFound" xml:space="preserve">
+		<value>Proveedor BrasilAPI no encontrado</value>
+	</data>
+	<data name="Provider_ViaCepNotFound" xml:space="preserve">
+		<value>Proveedor ViaCEP no encontrado</value>
+	</data>
+	<data name="REQUIRED_ZIPCODE" xml:space="preserve">
+		<value>¡El código postal es obligatorio!</value>
+	</data>
+	<data name="INVALID_ZIPCODE" xml:space="preserve">
+		<value>Código postal inválido. Debe contener 8 dígitos.</value>
+	</data>
+</root>

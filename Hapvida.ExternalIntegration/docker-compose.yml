@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  hapvida-api:
+    build:
+      context: .
+      dockerfile: src/Hapvida.ExternalIntegration.Api/Dockerfile
+      args:
+        BUILD_CONFIGURATION: Release
+    container_name: hapvida-external-integration-api
+    ports:
+      - "${HTTP_PORT:-5000}:8080"
+      - "${HTTPS_PORT:-5001}:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT:-Production}
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__DefaultConnection=${ConnectionStrings__DefaultConnection:-Data Source=:memory:}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "dotnet", "--version"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    networks:
+      - hapvida-network
+
+networks:
+  hapvida-network:
+    driver: bridge
+
